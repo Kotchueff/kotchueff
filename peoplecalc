@@ -1,0 +1,16 @@
+n = int(input())
+x = n
+y = 10
+if n > 100:
+    x = n % 100
+if n == 1000:
+    print(n, "программистов")
+if not 11 <= x <= 20:
+    if x % y == 1 and x != 11:
+        print(n, "программист")
+    elif x % y == 2 or x % y == 3 or x % y == 4:
+        print(n, "программиста")
+    else:
+        print(n, "программистов")
+else:
+    print(n, "программистов")
