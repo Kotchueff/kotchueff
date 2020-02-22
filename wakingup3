@@ -1,0 +1,11 @@
+A = int(input())
+B = int(input())
+H = int(input())
+if A <= H <= B:
+    print("Это нормально")
+elif H < A <= B:
+    print("Недосып")
+elif A <= B < H:
+    print("Пересып")
+else:
+    print("Неверные данные")
