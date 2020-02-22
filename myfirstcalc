@@ -1,0 +1,19 @@
+x = float(input())
+y = float(input())
+calc = input()
+if (calc == "/" or calc == "mod" or calc == "div") and y == 0.0:
+    print("Деление на 0!")
+elif calc == "+":
+    print(x + y)
+elif calc == "-":
+    print(x - y)
+elif calc == "*":
+    print(x * y)
+elif calc == "mod":
+    print(x % y)
+elif calc == "pow":
+    print(x ** y)
+elif calc == "div":
+    print(x // y)
+elif calc == "/":
+    print(x / y)
