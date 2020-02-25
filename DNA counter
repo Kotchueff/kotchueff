@@ -1,0 +1,8 @@
+string = str(input())
+x = string.lower()
+y = 0
+for j in string:
+        y += 1
+g = x.count("g")
+c = x.count("c")
+print((g+c)/y*100)
