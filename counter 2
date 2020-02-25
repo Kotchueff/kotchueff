@@ -1,0 +1,19 @@
+a = int(input())
+b = int(input())
+s = 0
+n = 0
+j = 0
+for i in range(a, b+1):
+        if i % 3 == 0:
+            break
+if (a <= b):
+    for i in range(a, b+1):
+        if i % 3 == 0:
+            j += s + i
+            n += 1
+    if n == 0:
+        print("0")
+    else:
+        print(j / n)
+else:
+    print("0")
