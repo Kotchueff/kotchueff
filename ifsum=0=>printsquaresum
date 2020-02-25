@@ -1,0 +1,12 @@
+s = []
+j = 0
+y = j**2
+x = j
+while y >= 0:
+    j = int(input())
+    y += j**2
+    s.append(j)
+    if j + x == 0:
+        print(y)
+        break
+    x += j
