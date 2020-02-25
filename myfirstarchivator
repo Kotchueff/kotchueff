@@ -1,0 +1,27 @@
+DNA = str(input())
+n = len(DNA)
+y = str("")  # схема счёта y = x(кол-во) + a(букв) + yif n == 1:
+z = str('')
+a = DNA[0]
+if n == 1:
+    y = y + a + str(1)
+else:
+    x = 0
+    b = DNA[1]
+    for i in range(n):
+        a1 = DNA[i]
+        if i < (n - 1):  # нельзя выходить за рамки текста (n+1)
+            b1 = DNA[i + 1]
+            x += 1
+            if a1 == b1:
+                continue
+            y = y + a1 + str(x)
+            x = 0
+        else:
+            b1 = DNA[i]
+            if a1 == b1:
+                x += 1
+            else:
+                y = y + a1 + str(x)
+            y = y + a1 + str(x)
+print(y)
