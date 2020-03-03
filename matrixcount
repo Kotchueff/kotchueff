@@ -1,0 +1,35 @@
+x, L, L1 = 0, [], []
+while "true":
+    a = [str(i) for i in input().split()]
+    if "end" not in a:
+        b = []
+        a = [int(x) for x in a]
+        L.append(a)
+        b += a
+        L1.append(b)
+    x += 1
+    if "end" in a:
+        y = len(b)
+        x -= 1
+        break
+for i in range(x):
+    i1, i2 = i - 1, i + 1
+    if i <= 0:
+        i1 = x - 1
+    if i >= x - 1:
+        i2 = 0
+    if y > 0:
+        for j in range(y):
+            j1, j2 = j - 1, j + 1
+            if j <= 0:
+                j1 = y - 1
+            if j >= y - 1:
+                j2 = 0
+            L1[i][j] = L[i1][j] + L[i2][j] + L[i][j1] + L[i][j2]
+            if j < y - 1:
+                print(L1[i][j], end=" ")
+            else:
+                print(L1[i][j])
+    else:
+        L1[i] = L[i1] + L[i2] + L[i] + L[i]
+        print(L1[i], end=" ")
