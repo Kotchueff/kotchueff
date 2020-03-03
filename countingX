@@ -1,0 +1,10 @@
+lst = [int(i) for i in input().split()]
+y, z = 0, 0
+x = int(input())
+if x not in lst:
+    print("Отсутствует")
+for i in lst:
+    if x == i:
+        z += 1
+        print(y, end=" ")
+    y += 1
