@@ -1,0 +1,44 @@
+X = int(input())
+x = X
+x1 = x * x
+matrix = [[0 for j in range(x)] for i in range(x)]
+i = 1        # сама цифра
+z = x - 1    # номер конца столбца/строки
+y = x - 1    # аналог z для левого края столбца/строки
+z1 = z - 1   # маркер для заполнения справа налево
+y1 = y       # маркер для заполнения снизу вверх
+a1 = 0       # точка отсчёта для нового цикла
+while i <= x1:
+    if x == 1:
+        matrix[0][0] = 1        # проверяем, нет ли у нас массива из одной цифры
+        break
+    for a in range(a1, x):
+        if i > x1:
+            break
+        for b in range(a1, x):
+            if matrix[a1 + 1][a1] > 0 and matrix[a1 + 1][a1 + 1] == 0:
+                x -= 1                                  # как только круг замкнут, обновляем переменные
+                z, y, a1 = x - 1, x - 1, a1 + 1
+                y1 = y
+                z1 = z - 1
+            if matrix[a][z] == 0 and a1 == a <= b:      # 1) заполняем слева направо
+                matrix[a1][b] = i
+            elif matrix[a][z] == 0 and matrix[a1][z] > 0:    # 2) заполняем сверху вниз
+                matrix[a][z] = i
+            elif matrix[z][a1] == 0 and matrix[z][z] > 0:    # 3) заполняем справа налево
+                matrix[z][z1] = i
+                if z1 > 0:
+                    z1 -= 1
+            elif matrix[a1 + 1][a1] == 0 and matrix[z][a1] > 0:    # 4) заполняем снизу вверх
+                y1 -= 1
+                matrix[y1][a1] = i
+            elif matrix[y1][a1] != 0 and a > b:
+                matrix[x][x] = i
+            else:
+                continue
+            i += 1
+for i in range(X):
+    for j in range(X):
+        print(matrix[i][j], end=" ")
+        if j == X - 1:
+            print()
