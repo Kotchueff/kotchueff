@@ -1,0 +1,22 @@
+string = [i.lower() for i in input().split()]
+string.sort()
+i = 1
+st = {}
+q = len(string)
+for x in range(q):
+    w = string[x]
+    st[w] = [1]
+    if x > 0:
+        z = string[x - 1]
+    else:
+        z = string[x]
+        i = 0
+    if w == z:
+        i += 1
+        st[w] = [i]
+    else:
+        i = 1
+        st[w] = [i]     # w - слово, i - количество повторений
+for i in st.keys():
+    j = st[i]
+    print(i, *j)
