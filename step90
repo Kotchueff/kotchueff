@@ -1,0 +1,13 @@
+import requests
+url = "https://stepic.org/media/attachments/course67/3.6.3/"
+inf = open ('D:\Download\dataset_3378_3.txt', 'r',)
+line = inf.readline().strip()
+inf.close()
+r = requests.get(line)
+while (r.text[0] != "W") and (r.text[1] != "e"):
+    r = requests.get(line)
+    line = url+r.text
+    print (line)
+with open ('D:\Download\dataset_3378_3.txt', 'w',) as inf:
+    inf. write(r.text)
+
