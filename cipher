@@ -1,0 +1,13 @@
+inpt, outpt, code, decode = [i for i in input()], [i for i in input()], [i for i in input()], [i for i in input()]
+l, l1, l2 = len(inpt), len(code), len(decode)
+key = {}
+for i in range(l):
+    k = inpt[i]
+    key[inpt[i]] = outpt[i]
+for i in range(l1):
+    if code[i] in key.keys():
+        print(key[code[i]], end = "")
+print()
+for i in range(l2):
+    if decode[i] in key.values():
+        print(list(key.keys())[list(key.values()).index(decode[i])], end = "")
