@@ -1,0 +1,33 @@
+n = int((input()))
+a, a1 = [], []
+for i in range(n):
+    a1 = (input().split(';'))
+    a.append(a1)
+b = []
+for i in range(n):
+    if a[i][0] in a[i]:
+        b.append(a[i][0])
+    if a[i][2] in a[i]:
+        b.append(a[i][2])
+b = list(dict.fromkeys(b))
+for j in range(len(b)):
+    x, win, lose, draw = 0, 0, 0, 0
+    for i in range(n):
+        if b[j] in a[i]:
+            k = a[i].index(b[j])
+            x += 1
+            if k == 0:
+                k1 = 1
+            else:
+                k1 = -1
+            if int(a[i][k + 1]) > int(a[i][k1 + 2]):
+                win += 1
+            elif int(a[i][k + 1]) < int(a[i][k1 + 2]):
+                lose += 1
+            else:
+                draw += 1
+    table = [b[j], x, win, draw, lose, (win * 3 + draw * 1)]
+    print(table[0], end=":")
+    for i in range(1, len(table)):
+        print(table[i], end=" ")
+    print()
