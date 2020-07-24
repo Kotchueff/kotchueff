@@ -1,0 +1,19 @@
+d = int(input())
+v = [input() for x in range(d)]
+voc = [x.lower() for x in v]
+l = int(input())
+txt = [input().split() for x in range(l)]
+t = []
+for i in range(len(txt)):
+    for j in txt[i]:
+        t.append(j.lower())  
+for i in range(len(t) - 1):
+    if i >= len(t):
+        break
+    while t[i] in voc: 
+        t.remove(t[i])
+        if i >= len(t):
+            break
+t = list(set(t))
+for i in t:
+    print(i)
