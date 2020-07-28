@@ -1,0 +1,29 @@
+inf = open ('D:\Download\dataset_3380_5.txt', 'r',)
+txt = []
+for i in inf:
+    txt.append(i.split())
+inf.close()
+d = dict.fromkeys(a for a in range (1,12))
+i = 0
+txt = [x for x in txt if x]
+for i in range (1,12):
+    d[i] = '-'
+    j = 0
+    H = []
+    h = 0
+    while j < len(txt):
+        if int(txt[j][0]) == i:
+            H.append(txt[j][2])
+            txt.remove(txt[j])
+        else:
+            j += 1
+    for q in range (len(H)):
+        h += float(H[q])
+    if len(H) > 0:
+        d[i] = float(h/len(H))
+    elif not H:
+        d[i] = '-'
+    else:
+        d[i] = float(h)
+for i in d.keys():
+    print (i, d[i])
