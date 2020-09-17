@@ -1,0 +1,8 @@
+pool = []
+for i in objects:
+    pool.append(id(i))
+ans = 0
+pool = set(pool)
+for obj in pool:
+    ans += 1
+print(ans)
