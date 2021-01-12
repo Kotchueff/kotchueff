@@ -1,0 +1,19 @@
+class Buffer:
+    def __init__(self):
+        self.lst = []
+
+
+    def add(self, *a):
+        self.lst += a
+        while len(self.lst)>5 or len(self.lst)%5 == 0:
+            if len(self.lst)<5:
+                break
+            x = 0
+            for i in range(5):
+                x += int(self.lst[i])
+            print (x)
+            del self.lst[:5]
+        
+    def get_current_part(self):
+        return self.lst
+        
