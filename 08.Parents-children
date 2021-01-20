@@ -1,0 +1,45 @@
+parentslist = {}
+def recursion(X):
+    allparents.add(X)
+    if X in dict.keys():
+        Y = set(dict[X])
+        for i in Y:
+            allparents.add(i)
+            recursion(i)
+    parentslist[child] = allparents
+
+    
+n = int(input())
+dict = {}
+for i in range(n):
+    x = input().split(" " or " : ")
+    for i in range(len(x)):
+        k = x[i]
+        j = len(k)
+        if j > 50:
+            x[i] = k[0:50]
+    len = len(x)
+    if len > 3:
+        dict[x[0]] = [x[j] for j in range(2, l)]
+    elif len == 1:
+        dict[x[0]] = [""]
+    else:
+        dict[x[0]] = [x[(l - 1)]]
+
+for child in dict.keys():
+    allparents = set()
+    for value in dict[child]:
+        recursion(value)
+
+q = int(input())
+answers = []
+for i in range(q):
+    x = [i for i in input().split(" ")]
+    A = x[0]
+    B = x[1]
+    if (B in parentslist.keys() and A in parentslist[B]) or (A == B):
+        answers.append('Yes')
+    else:
+        answers.append('No')
+for i in range(len(answers)):
+    print(answers[i])
