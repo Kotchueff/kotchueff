@@ -1,0 +1,45 @@
+parentslist = {}
+def recursion(X):
+    allparents.add(X)
+    if X in dict.keys():
+        Y = set(dict[X])
+        for i in Y:
+            allparents.add(i)
+            recursion(i)
+    parentslist[child] = allparents
+
+# Заполняем словарь с исходными данными, где ключ - child, а значение - parent
+n = int(input())                
+dict = {}
+for i in range(n):
+    x = input().split(" : " and " ")
+    #print (x)
+    l = len(x)
+    if l > 3:
+        dict[x[0]] = [x[j] for j in range(2, l)]
+    elif l == 1:
+        dict[x[0]] = [""]
+    else:
+        dict[x[0]] = [x[(l - 1)]]
+        
+for child in dict.keys():
+    allparents = set()
+    for value in dict[child]:
+        recursion(value)
+        
+# Заполняем список с ответами
+q = int(input())
+answers = []
+newAnswers = []
+for i in range(q):
+    x = input().strip()
+    answers.append(x)
+
+for x in range(len(answers)):
+    y = x
+    for i in answers[: x]:
+        g = answers[x]
+        if (i in parentslist[g] or i == answers[x]) and answers[x] not in newAnswers:
+            newAnswers.append(g)
+for i in newAnswers:
+    print(i)
