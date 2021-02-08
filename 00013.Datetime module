@@ -1,0 +1,6 @@
+import datetime
+
+y, m, d = [int(n) for n in input().split()]
+InputDate = datetime.date(y, m, d)
+OutputDate = (InputDate + datetime.timedelta(int(input())))
+print(OutputDate.year, OutputDate.month, OutputDate.day)
